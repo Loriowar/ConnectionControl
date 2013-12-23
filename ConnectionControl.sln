@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectionControl", "ConnectionControl\ConnectionControl.csproj", "{A8D7C263-9A2D-4260-8E46-DCB316DDABAA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BA363662-78A9-41E1-AF75-D0F56CAAC789}"
+	ProjectSection(SolutionItems) = preProject
+		Performance1.psess = Performance1.psess
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8D7C263-9A2D-4260-8E46-DCB316DDABAA}.Debug|x86.ActiveCfg = Debug|x86
+		{A8D7C263-9A2D-4260-8E46-DCB316DDABAA}.Debug|x86.Build.0 = Debug|x86
+		{A8D7C263-9A2D-4260-8E46-DCB316DDABAA}.Release|x86.ActiveCfg = Release|x86
+		{A8D7C263-9A2D-4260-8E46-DCB316DDABAA}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

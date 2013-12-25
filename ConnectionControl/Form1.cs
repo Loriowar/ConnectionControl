@@ -32,6 +32,7 @@ namespace ConnectionControl
             InitializeComponent();
 
             _connection_params.GetTcpConnections();
+            _connection_params.RunRefreshHostName();
             RefreshTCPTableData();
 
             // Initialize timer and depend value

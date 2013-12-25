@@ -39,9 +39,9 @@ namespace ConnectionControl
             {
                 protocols.Add(connect.Protocol.ToString());
                 states.Add(connect.State);
-                //local_addresses.Add(connect.LocalAddress);
+                local_addresses.Add(connect.TryGetLocalAddress());
                 local_ip_addresses.Add(connect.Local.ToString());
-                //remote_addresses.Add(connect.RemoteAddress);
+                remote_addresses.Add(connect.TryGetRemoteAddress());
                 remote_ip_addresses.Add(connect.Remote.Address.ToString());
                 pids.Add(connect.PID.ToString());
                 processes_names.Add(connect.ProcessName);
@@ -57,8 +57,9 @@ namespace ConnectionControl
             table_content.Add("Protocol", protocols.ToArray());
             table_content.Add("State", states.ToArray());
             table_content.Add("Local IP addresses", local_ip_addresses.ToArray());
-            //table_content.Add("Remote addresses", remote_addresses.ToArray());
+            table_content.Add("Local addresses", local_addresses.ToArray());
             table_content.Add("Remote IP address", remote_ip_addresses.ToArray());
+            table_content.Add("Remote addresses", remote_addresses.ToArray());
             table_content.Add("PID", pids.ToArray());
             table_content.Add("Process name", processes_names.ToArray());
             table_content.Add("Was active at", was_active_at.ToArray());

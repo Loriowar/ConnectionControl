@@ -47,6 +47,12 @@ namespace ConnectionControl
 
             _refresh_table_view_timer.Interval = Convert.ToInt32(SecValueUpDown.Value) * 1000;
             _refresh_table_view_timer.Tick += new EventHandler(RefreshTableViewEvent);
+
+            // Disable sotrting
+            foreach (DataGridViewColumn column in simpleDataGridView.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
 
         private void simpleDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -61,8 +67,11 @@ namespace ConnectionControl
 
         private void CloseSelectedConnection_Click(object sender, EventArgs e)
         {
-            // Stop refresh timer for evade conflict
-            _refresh_table_view_timer.Stop();
+            if (AutoRefreshCheckBox.CheckState == CheckState.Checked)
+            {
+                // Stop refresh timer for evade conflict
+                _refresh_table_view_timer.Stop();
+            }
 
             // Change button text and store previous value
             var old_button_text = CloseSelectedConnection.Text;
@@ -71,6 +80,7 @@ namespace ConnectionControl
             // Lock button
             CloseSelectedConnection.Enabled = false;
 
+            // TODO: this method of get selected row can not support sorting table
             var selected_row_content = _connection_params[simpleDataGridView.CurrentRow.Index];
 
             // Determine connection by local port
@@ -89,8 +99,11 @@ namespace ConnectionControl
             // Unlock button
             CloseSelectedConnection.Enabled = true;
 
-            // Resume timer
-            _refresh_table_view_timer.Start();
+            if (AutoRefreshCheckBox.CheckState == CheckState.Checked)
+            {
+                // Resume timer
+                _refresh_table_view_timer.Start();
+            }
         }
 
         private void StaticNumConLabel_Click(object sender, EventArgs e)
